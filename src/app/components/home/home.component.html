@@ -1,0 +1,6 @@
+<div class="mainWrapper mx-auto my-5 shadow">
+    <P class="shadow mb-4">{{ userData?.name?.[0] }}</P>
+    <h1>Welcome {{ userData?.name | titlecase }}</h1>
+
+</div>
+<button type="button" class="logOutBtn btn btn-danger mt-4 mx-auto shadow" (click)="onLogOut()">Log Out</button>

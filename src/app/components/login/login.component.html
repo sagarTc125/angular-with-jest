@@ -1,0 +1,31 @@
+<div class="card formContainer shadow p-3 mb-5 bg-body rounded m-auto my-5">
+    <h4 class="mb-3">{{ isInSignupMode ? 'SignUp' : 'Login' }}</h4>
+    <form>
+        <div class="form-group mb-3">
+            <label class="mb-1" for="exampleInputEmail1">Email address</label>
+            <input [(ngModel)]="userId" [ngModelOptions]="{standalone: true}" type="email" class="form-control"
+                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="luffy@pirateking.com">
+        </div>
+        <div *ngIf="isInSignupMode" class="form-group mb-3">
+            <label class="mb-1" for="userName">Name</label>
+            <input [(ngModel)]="userName" [ngModelOptions]="{standalone: true}" type="text" class="form-control"
+                id="userName" aria-describedby="emailHelp" placeholder="Monkey D. Luffy">
+        </div>
+        <div class="form-group mb-3">
+            <label class="mb-1" for="exampleInputPassexampleInputPassword1word1">Password</label>
+            <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" class="form-control"
+                id="exampleInputPassword1" placeholder="Gear5@1078">
+        </div>
+        <div *ngIf="isInSignupMode" class="form-group mb-3">
+            <label class="mb-1" for="exampleInputPassword1">Confirm Password</label>
+            <input [(ngModel)]="confirmPwd" [ngModelOptions]="{standalone: true}" type="password" class="form-control"
+                id="exampleInputPassword1" placeholder="Gear5@1078">
+        </div>
+        <div *ngIf="errorMsg && errorMsg !== ''" class="alert alert-danger mb-3" role="alert">
+            {{ errorMsg }}
+        </div>
+        <button type="button" class="btn btn-primary" *ngIf="!isInSignupMode" (click)="onLogin()">Login</button>
+        <button type="button" [ngClass]="isInSignupMode ? 'btn-primary' : 'btn-outline-primary ms-3'" class="btn"
+            (click)="onSignUp()">SignUp</button>
+    </form>
+</div>
